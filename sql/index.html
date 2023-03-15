@@ -1,0 +1,60 @@
+MY SQL
+
+Question- 
+
+IMDB Design a DB for IMDB 
+1. Movie should have multiple media(Video or Image) 
+2. Movie can belongs to multiple Genre 
+3. Movie can have multiple reviews and Review can belongs to a user 
+4. Artist can have multiple skills 
+5. Artist can perform multiple role in a single film
+
+Answer-
+
+Based on the requirements stated,
+
+Entities:
+
+-Movie
+-Media
+-Genre
+-Review
+-User
+-Artist
+-Skill
+-Role
+-Relationships:
+
+A Movie has many Media (Video or Image)
+A Movie can belong to many Genres, and a Genre can be associated with many Movies (many-to-many relationship)
+A Movie can have many Reviews, and a Review belongs to one User
+An Artist can have many Skills, and a Skill can be associated with many Artists (many-to-many relationship)
+An Artist can perform many Roles in a single Movie, and a Role can be performed by many Artists (many-to-many relationship)
+Tables:
+
+-Movie (id, title, release_year, duration, synopsis)
+-Media (id, movie_id, url, type)
+-Genre (id, name)
+-Movie_Genre (movie_id, genre_id)
+-Review (id, movie_id, user_id, rating, comment)
+-User (id, username, email)
+-Artist (id, name, bio)
+-Skill (id, name)
+-Artist_Skill (artist_id, skill_id)
+-Role (id, name)
+-Movie_Artist_Role (movie_id, artist_id, role_id)
+
+Explanation:
+
+The Movie table holds basic information about each movie, such as the title, release year, duration, and synopsis.
+The Media table holds information about each video or image associated with a movie, including its URL and type (e.g., "trailer," "poster," "screenshot").
+The Genre table holds information about each genre, such as its name.
+The Movie_Genre table connects movies to genres, allowing a movie to belong to multiple genres.
+The Review table holds information about each user's review of a movie, including their rating and comments.
+The User table holds information about each user, such as their username and email address.
+The Artist table holds information about each artist, including their name and bio.
+The Skill table holds information about each skill an artist can have, such as "actor," "director," or "cinematographer."
+The Artist_Skill table connects artists to the skills they possess.
+The Role table holds information about each role in a movie, such as "lead actor," "director," or "editor."
+The Movie_Artist_Role table connects movies to artists and the roles they perform in that movie.
+With this database design, IMDB would be able to manage information about movies, media, genres, reviews, users, artists, skills, and roles, allowing users to easily search and browse for information about their favorite movies and artists.
